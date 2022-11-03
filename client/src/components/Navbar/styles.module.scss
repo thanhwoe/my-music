@@ -1,0 +1,18 @@
+.navbar{
+    border-bottom: 1px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to left bottom, #2979ff, #07a787);
+    margin-bottom: 20px;
+    box-shadow: -1px 1px 10px 5px rgba(110, 209, 148, 0.3);
+    z-index: 200;
+    position: fixed;
+    width: 100vw;
+    backdrop-filter: blur(40px);
+    .popoverContent {
+        width: 160px;
+        background-color: rgba(17, 18, 32, 0.8);
+        border: 1px solid ;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to left bottom, #2979ff, #07a787);
+    }
+}

@@ -1,0 +1,105 @@
+@import '../../styles/core/mixins';
+
+.card{
+    width: 388px;
+    height: 552px;
+    flex-shrink: 0;
+    padding: 8px 25px;
+    position: relative;
+    &__point{
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        z-index: 2;
+        top: 40px;
+        left: 64px;
+        img{
+            position: absolute;
+            max-width: initial;
+
+            &.pointActive{
+                opacity: 0;
+                top: -24px;
+                left: -26px;
+            }
+        }
+    }
+    
+    &::before {
+        content: "";
+        width: 100%;
+        height: 1px;
+        background: #fff;
+        position: absolute;
+        top: 55px;
+        left: 98px;
+        opacity: 0.5;
+    }
+    &::after {
+        content: "";
+        width: 1px;
+        height: 45px;
+        background: #fff;
+        opacity: 0.5;
+        position: absolute;
+        top: 66px;
+        left: 62px;
+        @include transform(rotate(30deg));
+    }
+    
+    &__content{
+        color: rgb(218, 160, 233);
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        border: 1px solid transparent;
+        margin-top: 100px;
+        border-radius: 10px;
+        background-clip: padding-box; 
+        background: linear-gradient(to right bottom, #0e1624, #0b1f1b);
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -2px; 
+            border-radius: inherit; 
+            background: linear-gradient(to right, rgb(105, 87, 170), rgb(96, 139, 84));
+        }
+        &:hover{
+            background: linear-gradient(to left top, #1c2a42, #14352e);
+            color: #fff;
+        }
+        img{
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            &.playing{
+                @include animation(spin 5s linear infinite)
+            }
+            &.pause{
+                @include animation(spin 5s linear infinite);
+                animation-play-state: paused;
+            }
+        }
+        .provider {
+            position: absolute;
+            bottom: 0;
+            right: 5px;
+            width: 25px;
+            height: 25px;
+            &.--yt {
+                color: rgb(199, 41, 41);
+            }
+            &.--sc {
+                color: rgb(250, 82, 4);
+            }
+        }
+    }
+}
+@include keyframes (spin){
+    100% { transform:rotate(360deg); }
+}

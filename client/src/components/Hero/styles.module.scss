@@ -1,0 +1,54 @@
+@import '../../styles/core/mixins';
+
+.hero{
+    position: relative;
+    height: 800px;
+    .visual{
+        width: 1201px;
+        height: 1201px;
+        position: absolute;
+        bottom: -160px;
+        z-index: 10;
+        transform: translateX(30%);
+        &__inner{
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+    }
+    .heading {
+        margin: 8px 0 22px 0;
+        text-shadow: 0px 3.6682px 0px #3bf0a1;
+        color: #fff;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    .description{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include keyframes(fadeToggle) {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        svg {
+            margin: 5px 0 0 12px;
+            .arrow1 {
+                @include animation(fadeToggle 1.2s 0s infinite);
+            }
+            .arrow2 {
+                @include animation(fadeToggle 1.2s 0.1s infinite);
+            }
+            .arrow3 {
+                @include animation(fadeToggle 1.2s 0.3s infinite);
+            }
+        }
+    }
+}

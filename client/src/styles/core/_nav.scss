@@ -1,0 +1,109 @@
+.nav {
+    @include size(100vw, 100vh);
+    position: fixed;
+    z-index: 199;
+    background-color: rgba($color: $blue-dark-cl, $alpha: 1);
+    @include mid(true);
+    flex-direction: column;
+    padding-bottom: 40px;
+    @include visible(0);
+    @include transition($t);
+    > ul {
+        > li {
+            text-align: center;
+            position: relative;
+            a {
+                min-width: 189px;
+                height: 100%;
+                font-family: msb;
+                font-size: var(--fs16);
+                line-height: var(--lh24);
+                color: $white-cl;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 13px 0;
+                @include transition($t);
+                i {
+                    display: inherit;
+                    margin-left: 10px;
+                    svg * {
+                        @include transition($t);
+                    }
+                }
+                &.clicked {
+                    color: $main-cl !important;
+                    i {
+                        @include transform(rotateX(-180deg) !important);
+                        svg * {
+                            fill: $main-cl !important;
+                        }
+                    }
+                }
+            }
+            > ul {
+                width: 168px;
+                height: 120px;
+                background: url(../img/menu-dropdown.svg) no-repeat center;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 16px 8px;
+                z-index: 100;
+                display: none;
+                li {
+                    a {
+                        min-width: auto;
+                        padding: 0 20px;
+                        height: 48px;
+                        justify-content: flex-start;
+                        border-radius: 8px;
+                        @include transition($t);
+                        &:hover {
+                            color: $white-cl;
+                            background: rgba(255, 255, 255, 0.16);
+                        }
+                    }
+                }
+            }
+            &:hover,
+            &.active {
+                > a {
+                    color: $main-cl;
+                    text-shadow: 0px 2px 4px rgba(138, 221, 185, 0.5);
+                    i {
+                        @include transform(rotateX(0deg));
+                        @include transition($t);
+                        svg * {
+                            fill: $white-cl;
+                        }
+                    }
+                }
+                > ul {
+                    @include visible(1);
+                }
+            }
+            &.active {
+                > a {
+                    background: url(../img/bg-menu-active.svg) no-repeat center;
+                    background-size: contain;
+                }
+            }
+            @include sm {
+                &:hover {
+                    > a {
+                        color: $white-cl;
+                        text-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+    .divider {
+        margin: 15px auto 0px auto;
+    }
+    &.active {
+        @include visible(1);
+    }
+}

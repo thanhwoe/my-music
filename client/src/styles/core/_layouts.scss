@@ -1,0 +1,60 @@
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-rendering: optimizeSpeed;
+	text-rendering: optimizeSpeed;
+	box-sizing: border-box;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+html {
+	font-size: 62.5%; // 1rem = 10px
+}
+body {
+	width: 100%;
+	max-width: 2560px;
+	@include text(var(--fs20), mr, 140%, $white-cl, none);
+	background: #000;
+	&.--disable-scroll {
+		height: 100vh;
+		overflow: hidden;
+	}
+	.wrapper {
+		width: 100%;
+		max-width: var(--container-fluid-max-width);
+		height: 100vh;
+		overflow: hidden;
+		position: relative;
+		.main {
+			@include size(100vw, 100vh);
+			position: relative;
+		}
+	}
+	:global(.container) {
+		width: 100%;
+		max-width: var(--container-max-width);
+		padding-right: var(--gap);
+		padding-left: var(--gap);
+		margin-right: auto;
+		margin-left: auto;
+		position: relative;
+	}
+	:global(.container-fluid) {
+		width: 100%;
+		max-width: var(--container-fluid-max-width);
+		padding-right: 50px;
+		padding-left: 50px;
+		margin-right: auto;
+		margin-left: auto;
+		position: relative;
+	}
+
+	@include xs {
+		font-size: var(--fs18);
+	}
+}

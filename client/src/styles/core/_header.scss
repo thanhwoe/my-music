@@ -1,0 +1,223 @@
+.header {
+    width: 100%;
+    max-width: 2560px;
+    height: var(--height-header);
+    position: fixed;
+    top: 0;
+    left: 50%;
+    @include transform(translateX(-50%));
+    z-index: 200;
+    opacity: 0;
+    .container-fluid {
+        z-index: 100;
+        height: 100%;
+    }
+    &__logo {
+        position: absolute;
+        left: 24px;
+        top: -131px;
+    }
+    &__menu {
+        height: 100%;
+        position: absolute;
+        right: 137px;
+        top: 16px;
+        display: flex;
+        align-items: center;
+        > ul {
+            display: flex;
+            > li {
+                display: flex;
+                align-items: center;
+                position: relative;
+                &:before {
+                    content: "";
+                    width: 168px;
+                    height: 2px;
+                    background: url(../img/menu-linelight.svg) no-repeat center;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    @include transform(translateX(-50%));
+                    opacity: 0;
+                    @include transition($t);
+                }
+                a {
+                    height: 100%;
+                    font-family: msb;
+                    font-size: var(--fs16);
+                    line-height: var(--lh24);
+                    color: $white-cl;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                    padding: 0 16px;
+                    @include transition($t);
+                    i {
+                        display: inherit;
+                        margin-left: 10px;
+                        svg * {
+                            @include transition($t);
+                        }
+                    }
+                }
+                &:not(:last-child) {
+                    &:after {
+                        content: "";
+                        width: 1px;
+                        height: 52px;
+                        background: radial-gradient(449.78% 45.65% at 50% 50%, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+                        opacity: 0.2;
+                        transform: matrix(-0.87, 0.5, 0.5, 0.87, 0, 0);
+                        display: inline-block;
+                    }
+                }
+                > ul {
+                    width: 168px;
+                    height: 120px;
+                    background: url(../img/menu-dropdown.svg) no-repeat center;
+                    position: absolute;
+                    top: 50px;
+                    left: 22px;
+                    padding: 16px 8px;
+                    @include visible(0);
+                    @include transition($t);
+                    li {
+                        a {
+                            height: 48px;
+                            border-radius: 8px;
+                            @include transition($t);
+                            &:hover {
+                                color: $white-cl;
+                                background: rgba(255, 255, 255, 0.16);
+                            }
+                        }
+                    }
+                }
+                &:hover,
+                &.active {
+                    &:before {
+                        opacity: 1;
+                    }
+                    > a {
+                        color: $main-cl;
+                        text-shadow: 0px 2px 4px rgba(138, 221, 185, 0.5);
+                        i {
+                            svg * {
+                                fill: $main-cl;
+                            }
+                        }
+                    }
+                    > ul {
+                        @include visible(1);
+                    }
+                }
+            }
+        }
+    }
+    &__bg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        display: grid;
+        grid-template-columns: 340px 1fr 362px;
+        &-left {
+            width: 100%;
+            height: 100%;
+            background: url(../img/first-menu.svg) no-repeat center;
+        }
+        &-mid {
+            background: url(../img/mid-menu.svg) repeat-x left;
+        }
+        &-right {
+            width: 100%;
+            height: 100%;
+            background: url(../img/last-menu.svg) no-repeat center;
+        }
+    }
+    &__btnmenu {
+        @include size(52px);
+        background: url(../img/btnmenu-mobile.svg) no-repeat center;
+        background-size: contain;
+        position: absolute;
+        right: 5px;
+        top: 21px;
+        display: none;
+        &-icon {
+            @include size(12px, 8px);
+            position: relative;
+            &:before,
+            &:after,
+            span {
+                content: "";
+                width: 100%;
+                height: 1px;
+                background: $main-cl;
+                position: absolute;
+                @include transition($t);
+            }
+            &:before {
+                top: 0;
+            }
+            span {
+                top: 50%;
+                @include transform(translateY(-50%) scale(1));
+            }
+            &:after {
+                bottom: 0;
+            }
+        }
+        &.active {
+            .header__btnmenu-icon {
+                &:before {
+                    @include transform(translate(0px, 3px) rotate(45deg));
+                }
+                span {
+                    @include transform(translateY(-50%) scale(0));
+                }
+                &:after {
+                    @include transform(translate(0px, -4px) rotate(-45deg));
+                }
+            }
+        }
+    }
+    @include lg {
+        top: -18px;
+    }
+    @include maxW(1366px) {
+        width: calc(100% + 76px);
+    }
+    @include md {
+        width: calc(100% + 180px);
+    }
+    @include sm {
+        width: 100%;
+        height: 80px;
+        &__logo {
+            left: -71px;
+            top: -89px;
+            img {
+                width: 286px;
+            }
+        }
+        &__menu {
+            display: none;
+        }
+        &__bg {
+            grid-template-columns: 180px 1fr;
+            &-left {
+                background: url(../img/first-menu-m.svg) no-repeat center;
+            }
+            &-mid {
+                background: url(../img/last-menu-m.svg) no-repeat left;
+            }
+            &-right {
+                display: none;
+            }
+        }
+        &__btnmenu {
+            @include mid(true);
+        }
+    }
+}

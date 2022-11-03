@@ -1,0 +1,265 @@
+// css button, title, icon, elements...
+img {
+	max-width: 100%;
+	height: auto;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+
+	-webkit-user-drag: none;
+	-khtml-user-drag: none;
+	-moz-user-drag: none;
+	-o-user-drag: none;
+
+	display: block;
+	outline: 0;
+	object-fit: contain;
+	&.--center {
+		margin: 0 auto;
+		display: block;
+	}
+}
+
+a {
+	text-decoration: none;
+	outline: 0;
+}
+
+strong {
+	font-family: msb;
+}
+
+.--hidden {
+	display: none;
+}
+
+sub {
+	vertical-align: sub;
+	font-size: smaller;
+}
+sup {
+	vertical-align: super;
+	font-size: smaller;
+}
+
+.heading {
+	display: block;
+	font-family: msb;
+	color: $primary-cl;
+	&.--h1 {
+		font-size: var(--fs48);
+		line-height: var(--lh56);
+		text-transform: uppercase;
+	}
+	&.--h2 {
+		font-size: var(--fs40);
+		line-height: var(--lh48);
+		text-transform: uppercase;
+	}
+	&.--h3 {
+		font-size: var(--fs36);
+		line-height: var(--lh40);
+		text-transform: uppercase;
+	}
+	&.--h4 {
+		font-size: var(--fs24);
+		line-height: var(--lh32);
+	}
+	&.--main-cl {
+		color: $main-cl;
+	}
+	&.--white-cl {
+		color: $white-cl;
+	}
+	&.--backdrop {
+		width: 1130px;
+		height: 73px;
+		text-align: center;
+		background: url(../img/bgheading-key.svg) no-repeat center bottom;
+		background-size: contain;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 60px;
+		position: relative;
+		left: 50%;
+		@include transform(translateX(-50%));
+		&.--left {
+			text-align: left;
+			left: 0;
+			margin-left: 0;
+			@include transform(translateX(0%));
+		}
+	}
+	@include xs {
+		&.--h4 {
+			font-size: var(--fs18);
+			line-height: var(--lh22);
+		}
+		&.--backdrop {
+			width: 327px;
+			height: 33px;
+			background: url(../img/bgheading-key-m.svg) no-repeat center bottom;
+			background-size: contain;
+			margin-bottom: 40px;
+			margin-left: 0;
+			margin-right: 0;
+			&.--h1 {
+				font-size: var(--fs20);
+				line-height: var(--lh24);
+			}
+		}
+		&.--h2 {
+			font-size: var(--fs20);
+			line-height: var(--lh24);
+		}
+	}
+}
+.label {
+	font-size: var(--fs18);
+	line-height: var(--lh24);
+	color: $violet-cl;
+	font-family: mm;
+	text-transform: uppercase;
+	@include xs {
+		font-size: var(--fs12);
+		line-height: var(--lh16);
+	}
+}
+
+.btnmain {
+	width: 212px;
+	height: 76px;
+	background: url(../img/bg-button-main.png) no-repeat center;
+	background-size: contain;
+	@include mid(true);
+	font-family: msb;
+	font-size: var(--fs16);
+	line-height: var(--lh24);
+	color: $main-cl;
+	&.--center {
+		display: inline-flex;
+		position: relative;
+		left: 50%;
+		@include transform(translateX(-50%));
+	}
+}
+
+.btnlearnmore {
+	@include size(195px, 57px);
+	background: url(../img/btn-learnmore.svg) no-repeat center;
+	background-size: contain;
+	@include mid(true);
+	font-size: var(--fs14);
+	line-height: var(--lh20);
+	font-family: msb;
+	color: $white-cl;
+	@include transition($t);
+	svg {
+		margin-left: 11px;
+		* {
+			@include transition($t);
+		}
+	}
+	&:hover {
+		color: $main-cl;
+		svg {
+			* {
+				fill: $main-cl;
+			}
+		}
+	}
+	@include xs {
+		@include size(185px, 48px);
+		svg {
+			width: 10px;
+			margin-left: 8px;
+		}
+	}
+}
+.btnmore {
+	width: max-content;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 4px 19px;
+	height: 36px;
+	border: 1px solid rgba(255, 255, 255, 0.16);
+	border-radius: 8px;
+	font-size: var(--fs14);
+	line-height: var(--lh20);
+	color: $white-cl;
+	font-family: msb;
+	cursor: pointer;
+	position: relative;
+	span {
+		position: relative;
+		z-index: 1;
+		@include transition($t);
+	}
+	svg {
+		position: relative;
+		z-index: 1;
+		margin-left: 8px;
+		margin-bottom: -2px;
+		display: block;
+		* {
+			@include transition($t);
+		}
+	}
+	&::after {
+		content: "";
+		width: calc(100% - 6px);
+		height: calc(100% - 6px);
+		@include mid;
+		z-index: 0;
+		background: #465067;
+		border-radius: 4px;
+	}
+	&:hover {
+		span {
+			color: $main-cl;
+		}
+		svg {
+			* {
+				fill: $main-cl;
+			}
+		}
+	}
+}
+
+.btnslider {
+	width: 65px;
+	height: 56px;
+	flex-shrink: 0;
+	background: url(../img/roadmap-btn-prev.svg) no-repeat center;
+	background-size: contain;
+	cursor: pointer;
+	position: relative;
+	bottom: -1px;
+	&.--next {
+		background: url(../img/roadmap-btn-next.svg) no-repeat center;
+		background-size: contain;
+	}
+	&:after {
+		content: "";
+		@include size(100%);
+		background: url(../img/eco-btn-prev-hover.svg) no-repeat center;
+		background-size: contain;
+		position: absolute;
+		opacity: 0;
+		@include transition($t);
+	}
+	&.--next {
+		&:after {
+			background: url(../img/eco-btn-next-hover.svg) no-repeat center;
+			background-size: contain;
+		}
+	}
+	&:hover {
+		&:after {
+			opacity: 1;
+		}
+	}
+}

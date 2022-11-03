@@ -1,0 +1,16 @@
+.player {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 200;
+    backdrop-filter: blur(40px);
+    height: 100px;
+    // box-shadow: -1px 1px 5px 3px rgba(110, 209, 148, 0.3);
+
+    box-shadow: inset 5px 2px 25px rgba(150, 103, 224, 0.6), inset -2px 1px 3px rgba(114, 126, 238, 0.3);
+
+    border-top: 1px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to left, #46dfdf, #8258e4);
+}

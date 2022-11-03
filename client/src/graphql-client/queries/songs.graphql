@@ -1,0 +1,14 @@
+query Songs {
+    songs {
+        id
+        title
+        artist
+        source
+        thumbnail
+        filePath
+        provider
+        user {
+            username
+        }
+    }
+}

@@ -1,0 +1,101 @@
+/*GRID - media queries breakpoints*/
+$xxs-min: 576px;
+$xs-min: 768px;
+$sm-min: 992px;
+$md-min: 1200px;
+$lg-min: 1560px;
+
+$xxs-max: ($xxs-min - 1); // Small Mobile
+$xs-max: ($xs-min - 1); // Mobile
+$sm-max: ($sm-min - 1); // Tablet
+$md-max: ($md-min - 1); // Desktop
+$lg-max: ($lg-min - 1); // Large Desktop
+
+/* Primary colors*/
+$primary-cl: #e3ffea;
+$primary-light-cl: #defff7;
+$main-cl: #68ff9e;
+$blue-cl: #0e71cd;
+$blue-dark-cl: #0d0829;
+$violet-cl: #bea3ef;
+
+$white-cl: #fff;
+$black-cl: #000;
+
+// Timing transition
+$t: 0.4s;
+$cubic: cubic-bezier(0.59, 0.29, 0.15, 0.93);
+
+:root {
+	/*  Container variable for responsive */
+	--container-fluid-max-width: 2671px;
+	// --container-max-width: calc(1440px + calc(var(--gap) * 2));
+	--container-max-width: calc(1130px + calc(var(--gap) * 2));
+	--gap: 30px;
+	--haft-gap: calc(var(--gap) / 2);
+
+	// Fontsize variable
+	--fs48: 4.8rem;
+	--lh56: 5.6rem;
+
+	--fs40: 4rem;
+	--lh48: 4.8rem;
+
+	--fs36: 3.6rem;
+
+	--fs34: 3.4rem;
+	--lh40: 4rem;
+
+	--fs28: 2.8rem;
+	--lh32: 3.2rem;
+
+	--fs24: 2.4rem;
+
+	--fs20: 2rem;
+
+	--fs18: 1.8rem;
+
+	--fs16: 1.6rem;
+	--lh24: 2.4rem;
+
+	--fs14: 1.4rem;
+	--lh20: 2rem;
+
+	--fs12: 1.2rem;
+	--lh16: 1.6rem;
+
+	--fs10: 1rem;
+
+	// General variable
+	--height-header: 83px;
+	--height-button: 42px;
+	--pd-section: 70px;
+
+	// Responsive
+	@media (max-width: $lg-max) {
+		--container-max-width: 1190px;
+	}
+	@media (max-width: $md-max) {
+		--container-max-width: 960px;
+	}
+	@media (max-width: $sm-max) {
+		--container-max-width: 860px;
+	}
+	@media (max-width: $xs-max) {
+		--container-max-width: 720px;
+		--gap: 15px;
+
+		--height-header: 80px;
+
+		--fs48: 3.8rem;
+		--lh56: 4.6rem;
+
+		--fs40: 3.8rem;
+		--lh48: 4.6rem;
+
+		--pd-section: 40px;
+	}
+	@media (max-width: $xxs-max) {
+		--container-max-width: 540px;
+	}
+}

@@ -1,0 +1,17 @@
+mutation CreateSong($createSongInput: CreateSongInput!) {
+    createSong(createSongInput: $createSongInput){
+        code
+        success
+        message
+        song {
+            id
+            title
+            user {
+                username
+            }
+        }
+        errors {
+            ...fieldError
+        }
+    }
+}

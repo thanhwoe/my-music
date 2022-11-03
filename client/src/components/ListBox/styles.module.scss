@@ -1,0 +1,50 @@
+.listBox {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .heading {
+        margin: 20px 0 30px 60px;
+        align-self: flex-start;
+        color: #E3FFEA;
+            &.--backdrop{
+                height: 73px;
+                width: 971px;
+                background: url(../../assets/images/bgheading-silder.svg) no-repeat left bottom;
+            }
+    }
+    .boxWrapper {
+        height: 230px;
+        background-clip: padding-box; 
+        background: linear-gradient(to left top, #251515, #1a2231, #172e29, #3c2249);
+        border: 1px solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to left top, #eb3f3f, #2979ff, #07a787, #b832f7);
+       
+        .listItem {
+            &::-webkit-scrollbar {
+                width: 6px;
+              }
+              &::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+                background-color: rgba(134, 133, 133, 0.5);
+              }
+              &::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+                border-radius: 10px;
+                background-color: transparent;
+              }
+            .item{
+                padding: 8px 0;
+                border-bottom: 1px solid gray;
+                cursor: pointer;
+                &:hover{
+                    background-color: rgba($color: #000000, $alpha: 0.2);
+                }
+            }
+            
+        }
+    }
+}
